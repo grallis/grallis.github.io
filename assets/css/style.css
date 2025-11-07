@@ -1885,5 +1885,31 @@ textarea.form-input::-webkit-resizer { display: none; }
 /*...................................................................*/
   
 
+
+.contact-item.qr-item {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center;     /* centers vertically */
+  margin: 15px 0;          /* spacing above and below */
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;  /* keeps elements stacked vertically if needed */
+}
+
+.qr-code {
+  width: 60px;             /* adjust size */
+  height: 60px;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+}
+
+.qr-code:hover {
+  transform: scale(1.05);  /* subtle hover effect */
+}
+
 }
 
