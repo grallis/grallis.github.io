@@ -19,7 +19,7 @@
 
   /**
    * colors
-   */
+   */ 
 
   /* gradient */
 
@@ -109,10 +109,160 @@
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease-in-out;
 
+
 }
 
+/* ---------------------------------
+   LIGHT THEME OVERRIDES (MUST BE OUTSIDE)
+---------------------------------- */
+:root.light {
+
+  /**
+   * colors
+   */ 
+
+  /* gradient — converted to light theme */
+  --bg-gradient-onyx: linear-gradient(
+    to bottom right, 
+    hsl(0, 0%, 100%) 3%, 
+    hsl(0, 0%, 96%) 97%
+  );
+
+  --bg-gradient-jet: linear-gradient(
+    to bottom right, 
+    hsla(0, 0%, 90%, 0.3) 0%, 
+    hsla(0, 0%, 100%, 0) 100%
+  ), hsl(0, 0%, 98%);
+
+  --bg-gradient-yellow-1: linear-gradient(
+    to bottom right, 
+    hsl(45, 100%, 60%) 0%, 
+    hsla(45, 100%, 60%, 0) 50%
+  );
+
+  --bg-gradient-yellow-2: linear-gradient(
+    135deg, 
+    hsla(45, 100%, 60%, 0.25) 0%, 
+    hsla(45, 100%, 60%, 0) 59.86%
+  ), hsl(0, 0%, 98%);
+
+  --border-gradient-onyx: linear-gradient(
+    to bottom right, 
+    hsl(0, 0%, 85%) 0%, 
+    hsla(0, 0%, 85%, 0) 50%
+  );
+
+  --text-gradient-yellow: linear-gradient(
+    to right, 
+    hsl(45, 100%, 60%), 
+    hsl(35, 100%, 55%)
+  );
+
+  /* solid — inverted to light mode */
+  --jet: hsl(0, 0%, 85%);
+  --onyx: hsl(0, 0%, 90%);
+  --eerie-black-1:  hsl(240, 2%, 13%);
+  --eerie-black-2: hsl(0, 0%, 96%);
+  --eerie-black-3: hsl(0, 0%, 70%);
+  --smoky-black: hsl(0, 0%, 100%);
+
+  --white-1: hsl(0, 0%, 30%);
+  --white-2: hsl(0, 0%, 20%);
+
+  --orange-yellow-crayola: hsl(45, 100%, 50%);
+  --vegas-gold: hsl(45, 54%, 45%);
+
+  --light-gray: hsl(0, 0%, 15%);
+  --light-gray-70: hsla(0, 0%, 50%, 0.7);
+
+  --bittersweet-shimmer: hsl(0, 43%, 45%);
+
+  /**
+   * typography — (unchanged)
+   */
+
+  /* font-family */
+  --ff-poppins: 'Poppins', sans-serif;
+
+  /* font-size */
+  --fs-1: 24px;
+  --fs-2: 18px;
+  --fs-3: 17px;
+  --fs-4: 16px;
+  --fs-5: 15px;
+  --fs-6: 14px;
+  --fs-7: 13px;
+  --fs-8: 11px;
+
+  /* font-weight */
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+
+  /**
+   * shadows — softened for light mode
+   */
+
+  --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.08);
+  --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.10);
+  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.12);
+  --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.08);
+  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.10);
+
+  /**
+   * transition (unchanged)
+   */
+
+  --transition-1: 0.25s ease;
+  --transition-2: 0.5s ease-in-out;
 
 
+  /* Navbar light mode */
+  .navbar {
+    background: hsla(0, 0%, 98%, 0.75); /* light semi-transparent */
+    border: 1px solid var(--jet); /* already light in light theme */
+    box-shadow: var(--shadow-2); /* softened shadows for light mode */
+  }
+
+  .navbar-link {
+    color: var(--eerie-black-1); /* dark text for light bg */
+  }
+
+  .navbar-link:hover{color: var(--eerie-black-3);}
+  .navbar-link:focus {
+    color: var(--eerie-black-2); /* slightly lighter hover color */
+  }
+
+  .navbar-link.active {
+    color: var(--orange-yellow-crayola); /* same accent color */
+  }
+
+  .about-text {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+  }
+
+  /* Light mode map */
+  .mapbox iframe {
+    filter: none;
+  }
+
+  .theme-toggle ion-icon {
+    color: var(--white-1); /* white in dark mode */
+    font-size: 1rem;
+    transition: color var(--transition-1);
+  }
+
+  /* Light mode icon (sun) */
+  body.light .theme-toggle ion-icon {
+    color: var(--smoky-black); /* black in light mode */
+  }
+
+  
+}
 
 
 /*-----------------------------------*\
@@ -226,6 +376,8 @@ article.active {
 .h5 {
   color: var(--white-2);
   text-transform: capitalize;
+  display: inline-flex;
+  gap: 6px;
 }
 
 .h2 { font-size: var(--fs-1); }
@@ -1266,7 +1418,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    * CUSTOM PROPERTY
    */
 
-  :root {
+  :root, :root.light {
 
     /**
      * typography
@@ -1655,7 +1807,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    * CUSTOM PROPERTY
    */
 
-  :root {
+  :root, :root.light {
 
     /**
     * shadow
@@ -1911,5 +2063,42 @@ textarea.form-input::-webkit-resizer { display: none; }
   transform: scale(1.05);  /* subtle hover effect */
 }
 
+}
+
+
+.timeline-images {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap; /* Important for stacking */
+}
+
+.timeline-images img {
+  width: 5cm;
+  height: 4cm;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* When screen is smaller than 600px → stack vertically */
+@media (max-width: 600px) {
+  .timeline-images {
+    flex-direction: column;
+    align-items: center; /* optional center alignment */
+  }
+
+  .timeline-images img {
+    width: 90%; /* responsive width on phone */
+    height: auto;
+  }
+}
+
+.emoji {
+  color: #FFDA6B;
+  font-weight: bold;
+  display: inline-block;   /* keeps emoji inline with text */
+  vertical-align: middle;  /* aligns it vertically with text */
+  margin-right: 6px;       /* optional spacing between arrow and text */
+  line-height: 1;          /**/
 }
 

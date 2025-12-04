@@ -157,3 +157,22 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+
+//
+// THEME TOGGLE
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.querySelector(".theme-toggle");
+
+  toggleBtn.addEventListener("click", () => {
+    document.documentElement.classList.toggle("light");
+
+    // Optional: toggle between icons
+    const icon = toggleBtn.querySelector("ion-icon");
+    if (document.documentElement.classList.contains("light")) {
+      icon.setAttribute("name", "sunny");
+    } else {
+      icon.setAttribute("name", "moon");
+    }
+  });
+});
